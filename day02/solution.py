@@ -1,4 +1,4 @@
-from src.util.file_input_processor import *
+from util.file_input_processor import *
 
 
 def parse_line(line):
