@@ -8,7 +8,7 @@ def read_text():
 
 def read_lines():
     with open(INPUT_FILE_NAME) as f:
-        return f.readlines()
+        return f.read().splitlines()
 
 
 def read_integers():
