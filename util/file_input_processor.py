@@ -11,6 +11,6 @@ def read_lines():
         return f.read().splitlines()
 
 
-def read_integers():
+def read_integer_lines():
     input_lines = read_lines()
     return [int(i) for i in input_lines]

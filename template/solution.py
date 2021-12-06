@@ -2,11 +2,11 @@ from util.file_input_processor import *
 
 
 def part_1():
-    inp = read_integers()
+    inp = read_integer_lines()
 
 
 def part_2():
-    inp = read_integers()
+    inp = read_integer_lines()
 
 
 if __name__ == "__main__":

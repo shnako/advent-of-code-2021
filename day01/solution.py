@@ -2,7 +2,7 @@ from util.file_input_processor import *
 
 
 def part_1():
-    depths = read_integers()
+    depths = read_integer_lines()
     increases = 0
     for i in range(1, len(depths)):
         if depths[i] > depths[i - 1]:
@@ -11,7 +11,7 @@ def part_1():
 
 
 def part_2():
-    depths = read_integers()
+    depths = read_integer_lines()
     increases = 0
     for i in range(1, len(depths) - 2):
         if depths[i] + depths[i + 1] + depths[i + 2] > depths[i - 1] + depths[i] + depths[i + 1]:
