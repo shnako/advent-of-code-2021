@@ -2,6 +2,7 @@ import itertools
 from functools import reduce
 
 from util.file_input_processor import *
+from util.grid_util import initialize_zero_grid
 
 
 def parse_line(input_line):
@@ -22,12 +23,6 @@ def flip_reversed_lines(lines):
     for line in lines:
         if line[0][0] > line[1][0] or line[0][1] > line[1][1]:
             line[0], line[1] = line[1], line[0]
-
-
-def initialize_2d_array(lines):
-    max_x = max(reduce(list.__add__, list(map(lambda line: [line[0][0], line[1][0]], lines)))) + 1
-    max_y = max(reduce(list.__add__, list(map(lambda line: [line[0][1], line[1][1]], lines)))) + 1
-    return [[0] * max_x for _ in range(max_y)]
 
 
 def populate_straight_lines(vents, lines):
@@ -59,7 +54,7 @@ def count_overlaps(vents):
 def part_1():
     lines = read_input()
     flip_reversed_lines(lines)
-    vents = initialize_2d_array(lines)
+    vents = initialize_zero_grid(reduce(list.__add__, lines))
     populate_straight_lines(vents, lines)
     return count_overlaps(vents)
 
@@ -67,7 +62,7 @@ def part_1():
 def part_2():
     lines = read_input()
     flip_reversed_lines(lines)
-    vents = initialize_2d_array(lines)
+    vents = initialize_zero_grid(reduce(list.__add__, lines))
     populate_straight_lines(vents, lines)
     populate_oblique_lines(vents, lines)
     return count_overlaps(vents)

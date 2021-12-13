@@ -1,4 +1,5 @@
 from util.file_input_processor import *
+from util.grid_util import find_neighbours
 
 """
 Part1:
@@ -19,21 +20,8 @@ def read_input():
     return list(map(lambda line: [int(height) for height in line], heightmap_lines))
 
 
-def find_neighbours(heightmap, x, y):
-    points = []
-    if x - 1 >= 0:
-        points.append((x - 1, y))
-    if y - 1 >= 0:
-        points.append((x, y - 1))
-    if x + 1 < len(heightmap):
-        points.append((x + 1, y))
-    if y + 1 < len(heightmap[x]):
-        points.append((x, y + 1))
-    return points
-
-
 def is_local_minimum(heightmap, x, y):
-    neighbours = find_neighbours(heightmap, x, y)
+    neighbours = find_neighbours(heightmap, (x, y))
     for neighbour in neighbours:
         if heightmap[x][y] >= heightmap[neighbour[0]][neighbour[1]]:
             return False
@@ -54,9 +42,7 @@ def find_basin_size(heightmap, low_point):
 
     i = 0
     while i < len(basin_points):
-        x = basin_points[i][0]
-        y = basin_points[i][1]
-        neighbours = find_neighbours(heightmap, x, y)
+        neighbours = find_neighbours(heightmap, basin_points[i])
         for neighbour in neighbours:
             if heightmap[neighbour[0]][neighbour[1]] < 9 and neighbour not in basin_points:
                 basin_points.append(neighbour)
