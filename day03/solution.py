@@ -1,6 +1,7 @@
 from copy import deepcopy
+from time import time
 
-from util.file_input_processor import *
+from util.file_input_processor import read_lines
 
 
 def find_most_common_at_position(binaries, position):
@@ -41,5 +42,12 @@ def part_2():
 
 
 if __name__ == "__main__":
-    print(f'Part 1 solution: {part_1()}')
-    print(f'Part 2 solution: {part_2()}')
+    start = time()
+    result_part_1 = part_1()
+    end = time()
+    print(f'Part 1 ran in {round(end - start, 2)} seconds and the result is {result_part_1}')
+
+    start = time()
+    result_part_2 = part_2()
+    end = time()
+    print(f'Part 2 ran in {round(end - start, 2)} seconds and the result is {result_part_2}')

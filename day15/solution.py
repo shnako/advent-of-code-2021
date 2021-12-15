@@ -1,6 +1,6 @@
-import heapq
-import sys
 from copy import deepcopy
+from heapq import heappop, heappush
+from sys import maxsize
 from time import time
 
 from util.file_input_processor import read_int_grid
@@ -13,21 +13,21 @@ The result for both parts is then the minimum path risk for the destination poin
 
 
 def get_minimum_path_risk_map(risk_map, start_x, start_y):
-    minimum_risk_map = [[sys.maxsize] * len(risk_map[i]) for i in range(len(risk_map))]
+    minimum_risk_map = [[maxsize] * len(risk_map[i]) for i in range(len(risk_map))]
     minimum_risk_map[start_y][start_x] = 0
 
     visited = set()
     next_positions = [(0, (start_y, start_x))]
 
     while len(next_positions) > 0:
-        current_position = heapq.heappop(next_positions)[1]
+        current_position = heappop(next_positions)[1]
         current_risk = minimum_risk_map[current_position[0]][current_position[1]]
 
         neighbours = filter(lambda neighbour: neighbour not in visited, find_neighbours(risk_map, current_position))
         for neighbour in neighbours:
             if current_risk + risk_map[neighbour[0]][neighbour[1]] < minimum_risk_map[neighbour[0]][neighbour[1]]:
                 minimum_risk_map[neighbour[0]][neighbour[1]] = current_risk + risk_map[neighbour[0]][neighbour[1]]
-                heapq.heappush(next_positions, (minimum_risk_map[neighbour[0]][neighbour[1]], neighbour))
+                heappush(next_positions, (minimum_risk_map[neighbour[0]][neighbour[1]], neighbour))
 
         visited.add(current_position)
 

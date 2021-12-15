@@ -1,5 +1,6 @@
-import itertools
 from collections import deque
+from itertools import chain
+from time import time
 
 from util.file_input_processor import read_int_grid
 from util.grid_util import find_neighbours
@@ -57,10 +58,17 @@ def part_2():
     while True:
         step += 1
         simulate_step(energy_levels)
-        if all(energy_level == 0 for energy_level in itertools.chain(*energy_levels)):
+        if all(energy_level == 0 for energy_level in chain(*energy_levels)):
             return step
 
 
 if __name__ == "__main__":
-    print(f'Part 1 solution: {part_1()}')
-    print(f'Part 2 solution: {part_2()}')
+    start = time()
+    result_part_1 = part_1()
+    end = time()
+    print(f'Part 1 ran in {round(end - start, 2)} seconds and the result is {result_part_1}')
+
+    start = time()
+    result_part_2 = part_2()
+    end = time()
+    print(f'Part 2 ran in {round(end - start, 2)} seconds and the result is {result_part_2}')

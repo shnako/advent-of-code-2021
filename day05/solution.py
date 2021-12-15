@@ -1,7 +1,8 @@
-import itertools
 from functools import reduce
+from itertools import chain
+from time import time
 
-from util.file_input_processor import *
+from util.file_input_processor import read_lines
 from util.grid_util import initialize_grid
 
 
@@ -48,7 +49,7 @@ def populate_oblique_lines(vents, lines):
 
 
 def count_overlaps(vents):
-    return sum(1 for vent in itertools.chain.from_iterable(vents) if vent > 1)
+    return sum(1 for vent in chain.from_iterable(vents) if vent > 1)
 
 
 def part_1():
@@ -69,5 +70,12 @@ def part_2():
 
 
 if __name__ == "__main__":
-    print(f'Part 1 solution: {part_1()}')
-    print(f'Part 2 solution: {part_2()}')
+    start = time()
+    result_part_1 = part_1()
+    end = time()
+    print(f'Part 1 ran in {round(end - start, 2)} seconds and the result is {result_part_1}')
+
+    start = time()
+    result_part_2 = part_2()
+    end = time()
+    print(f'Part 2 ran in {round(end - start, 2)} seconds and the result is {result_part_2}')

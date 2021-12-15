@@ -1,9 +1,9 @@
-import unittest
+from unittest import TestCase
 
 from solution import part_1, part_2
 
 
-class TestSolution(unittest.TestCase):
+class TestSolution(TestCase):
     def test_part_1(self):
         self.assertEqual(part_1(), 526)
 
