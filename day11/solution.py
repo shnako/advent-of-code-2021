@@ -1,13 +1,8 @@
 import itertools
 from collections import deque
 
-from util.file_input_processor import read_lines
+from util.file_input_processor import read_int_grid
 from util.grid_util import find_neighbours
-
-
-def read_input():
-    lines = read_lines()
-    return list(map(lambda line: [int(energy) for energy in line], lines))
 
 
 def increase_energy_levels(energy_levels):
@@ -50,13 +45,13 @@ def simulate_step(energy_levels):
 
 
 def part_1():
-    energy_levels = read_input()
+    energy_levels = read_int_grid()
 
     return sum(simulate_step(energy_levels) for _ in range(100))
 
 
 def part_2():
-    energy_levels = read_input()
+    energy_levels = read_int_grid()
 
     step = 0
     while True:

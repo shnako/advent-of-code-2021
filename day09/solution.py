@@ -15,11 +15,6 @@ The result is the product of the sizes of the 3 largest basins.
 """
 
 
-def read_input():
-    heightmap_lines = read_lines()
-    return list(map(lambda line: [int(height) for height in line], heightmap_lines))
-
-
 def is_local_minimum(heightmap, x, y):
     neighbours = find_neighbours(heightmap, (x, y))
     for neighbour in neighbours:
@@ -52,7 +47,7 @@ def find_basin_size(heightmap, low_point):
 
 
 def part_1():
-    heightmap = read_input()
+    heightmap = read_int_grid()
 
     low_points = find_low_points(heightmap)
 
@@ -60,7 +55,7 @@ def part_1():
 
 
 def part_2():
-    heightmap = read_input()
+    heightmap = read_int_grid()
 
     low_points = find_low_points(heightmap)
 
