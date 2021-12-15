@@ -2,7 +2,7 @@ import itertools
 from functools import reduce
 
 from util.file_input_processor import *
-from util.grid_util import initialize_zero_grid
+from util.grid_util import initialize_grid
 
 
 def parse_line(input_line):
@@ -54,7 +54,7 @@ def count_overlaps(vents):
 def part_1():
     lines = read_input()
     flip_reversed_lines(lines)
-    vents = initialize_zero_grid(reduce(list.__add__, lines))
+    vents = initialize_grid(reduce(list.__add__, lines))
     populate_straight_lines(vents, lines)
     return count_overlaps(vents)
 
@@ -62,7 +62,7 @@ def part_1():
 def part_2():
     lines = read_input()
     flip_reversed_lines(lines)
-    vents = initialize_zero_grid(reduce(list.__add__, lines))
+    vents = initialize_grid(reduce(list.__add__, lines))
     populate_straight_lines(vents, lines)
     populate_oblique_lines(vents, lines)
     return count_overlaps(vents)

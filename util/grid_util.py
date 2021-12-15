@@ -25,14 +25,14 @@ def find_neighbours(grid, point, include_diagonals=False):
     return points
 
 
-def initialize_zero_grid(points):
+def initialize_grid(points, value=0):
     max_x = max(map(lambda point: point[0], points)) + 1
     max_y = max(map(lambda point: point[1], points)) + 1
-    return [[0] * max_x for _ in range(max_y)]
+    return [[value] * max_x for _ in range(max_y)]
 
 
 def map_list_of_points_to_grid(points, char_to_use):
-    grid = initialize_zero_grid(points)
+    grid = initialize_grid(points)
     for point in points:
         grid[point[1]][point[0]] = char_to_use
     return grid
