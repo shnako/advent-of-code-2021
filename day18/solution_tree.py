@@ -6,6 +6,10 @@ from util.file_input_processor import read_lines
 
 
 """
+This is the first solution I implemented and structures the data into a binary tree. Part 2 runs in about 4 seconds.
+While implementing the binary tree solution I realised that the operations can be done much easier on a list,
+so have also implemented the list-based solution in solution_list.py after implementing this.
+
 We first parse the input into a tree of elements by recursively processing the contents of each pair of brackets.
 We then reduce the tree of elements by recursively traversing it and applying the relevant operations.
 The result for the first part is found by recursively calculating the magnitude of the summed lines. 

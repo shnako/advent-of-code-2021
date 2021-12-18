@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from solution import part_1, part_2
+from solution_tree import part_1, part_2
 
 
 class TestSolution(TestCase):
