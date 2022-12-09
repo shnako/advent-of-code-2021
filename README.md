@@ -49,3 +49,13 @@ The corresponding files for each solution are grouped within a dayXX folder. Eac
 1. Open this project in [PyCharm](https://www.jetbrains.com/pycharm/).
 2. Open the solution or test you want to run.
 3. Right click it and press _Run 'solution'_.
+
+## Results
+
+### Dashboard
+
+![Advent of Code 2020 Dashboard Result](dashboard.png)
+
+### Company Leaderboard
+
+![Anonymized Private Company Leaderboard](company-leaderboard-anonymized.png)
